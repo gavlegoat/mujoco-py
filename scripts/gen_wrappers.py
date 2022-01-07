@@ -514,6 +514,10 @@ def get_funcs(fname):
                 # XXX
                 skip = True
 
+        # Added to skip rendering functions
+        if func_name[:3] == "mjr" or func_name[:4] == "mjui":
+            skip = True
+
         if not skip and ((ret_name in ["int", "mjtNum", "void"]) or
                          (ret_name[:2] == "mj" and ret_name[-1] == "*") and ret_name != "mjtNum*" and ret_name != "mjData*"):
 
@@ -543,8 +547,8 @@ def main():
         'mjmodel.h',
         'mjdata.h',
         'mjvisualize.h',
-        'mjrender.h',
-        'mjui.h'
+        #'mjrender.h',
+        #'mjui.h'
     ]
     if len(sys.argv) > 1:
         OUTPUT = sys.argv[1]

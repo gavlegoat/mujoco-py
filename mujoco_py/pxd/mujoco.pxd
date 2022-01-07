@@ -1,7 +1,7 @@
 include "mjmodel.pxd"
 include "mjdata.pxd"
-include "mjrender.pxd"
-include "mjui.pxd"
+#include "mjrender.pxd"
+#include "mjui.pxd"
 include "mjvisualize.pxd"
 
 
@@ -563,111 +563,111 @@ cdef extern from "mujoco.h" nogil:
 
     #--------------------- OpenGL rendering -----------------------------------------------
 
-    # Set default mjrContext.
-    void mjr_defaultContext(mjrContext* con);
+    ## Set default mjrContext.
+    #void mjr_defaultContext(mjrContext* con);
 
-    # Allocate resources in custom OpenGL context; fontscale is mjtFontScale.
-    void mjr_makeContext(const mjModel* m, mjrContext* con, int fontscale);
+    ## Allocate resources in custom OpenGL context; fontscale is mjtFontScale.
+    #void mjr_makeContext(const mjModel* m, mjrContext* con, int fontscale);
 
-    # Change font of existing context.
-    void mjr_changeFont(int fontscale, mjrContext* con);
+    ## Change font of existing context.
+    #void mjr_changeFont(int fontscale, mjrContext* con);
 
-    # Add Aux buffer with given index to context; free previous Aux buffer.
-    void mjr_addAux(int index, int width, int height, int samples, mjrContext* con);
+    ## Add Aux buffer with given index to context; free previous Aux buffer.
+    #void mjr_addAux(int index, int width, int height, int samples, mjrContext* con);
 
-    # Free resources in custom OpenGL context, set to default.
-    void mjr_freeContext(mjrContext* con);
+    ## Free resources in custom OpenGL context, set to default.
+    #void mjr_freeContext(mjrContext* con);
 
-    # Upload texture to GPU, overwriting previous upload if any.
-    void mjr_uploadTexture(const mjModel* m, const mjrContext* con, int texid);
+    ## Upload texture to GPU, overwriting previous upload if any.
+    #void mjr_uploadTexture(const mjModel* m, const mjrContext* con, int texid);
 
-    # Upload mesh to GPU, overwriting previous upload if any.
-    void mjr_uploadMesh(const mjModel* m, const mjrContext* con, int meshid);
+    ## Upload mesh to GPU, overwriting previous upload if any.
+    #void mjr_uploadMesh(const mjModel* m, const mjrContext* con, int meshid);
 
-    # Upload height field to GPU, overwriting previous upload if any.
-    void mjr_uploadHField(const mjModel* m, const mjrContext* con, int hfieldid);
+    ## Upload height field to GPU, overwriting previous upload if any.
+    #void mjr_uploadHField(const mjModel* m, const mjrContext* con, int hfieldid);
 
-    # Make con->currentBuffer current again.
-    void mjr_restoreBuffer(const mjrContext* con);
+    ## Make con->currentBuffer current again.
+    #void mjr_restoreBuffer(const mjrContext* con);
 
-    # Set OpenGL framebuffer for rendering: mjFB_WINDOW or mjFB_OFFSCREEN.
-    # If only one buffer is available, set that buffer and ignore framebuffer argument.
-    void mjr_setBuffer(int framebuffer, mjrContext* con);
+    ## Set OpenGL framebuffer for rendering: mjFB_WINDOW or mjFB_OFFSCREEN.
+    ## If only one buffer is available, set that buffer and ignore framebuffer argument.
+    #void mjr_setBuffer(int framebuffer, mjrContext* con);
 
-    # Read pixels from current OpenGL framebuffer to client buffer.
-    # Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
-    void mjr_readPixels(unsigned char* rgb, float* depth,
-                              mjrRect viewport, const mjrContext* con);
+    ## Read pixels from current OpenGL framebuffer to client buffer.
+    ## Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
+    #void mjr_readPixels(unsigned char* rgb, float* depth,
+    #                          mjrRect viewport, const mjrContext* con);
 
-    # Draw pixels from client buffer to current OpenGL framebuffer.
-    # Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
-    void mjr_drawPixels(const unsigned char* rgb, const float* depth,
-                              mjrRect viewport, const mjrContext* con);
+    ## Draw pixels from client buffer to current OpenGL framebuffer.
+    ## Viewport is in OpenGL framebuffer; client buffer starts at (0,0).
+    #void mjr_drawPixels(const unsigned char* rgb, const float* depth,
+    #                          mjrRect viewport, const mjrContext* con);
 
-    # Blit from src viewpoint in current framebuffer to dst viewport in other framebuffer.
-    # If src, dst have different size and flg_depth==0, color is interpolated with GL_LINEAR.
-    void mjr_blitBuffer(mjrRect src, mjrRect dst, int flg_color, int flg_depth, const mjrContext* con);
+    ## Blit from src viewpoint in current framebuffer to dst viewport in other framebuffer.
+    ## If src, dst have different size and flg_depth==0, color is interpolated with GL_LINEAR.
+    #void mjr_blitBuffer(mjrRect src, mjrRect dst, int flg_color, int flg_depth, const mjrContext* con);
 
-    # Set Aux buffer for custom OpenGL rendering (call restoreBuffer when done).
-    void mjr_setAux(int index, const mjrContext* con);
+    ## Set Aux buffer for custom OpenGL rendering (call restoreBuffer when done).
+    #void mjr_setAux(int index, const mjrContext* con);
 
-    # Blit from Aux buffer to con->currentBuffer.
-    void mjr_blitAux(int index, mjrRect src, int left, int bottom, const mjrContext* con);
+    ## Blit from Aux buffer to con->currentBuffer.
+    #void mjr_blitAux(int index, mjrRect src, int left, int bottom, const mjrContext* con);
 
-    # Draw text at (x,y) in relative coordinates; font is mjtFont.
-    void mjr_text(int font, const char* txt, const mjrContext* con,
-                        float x, float y, float r, float g, float b);
+    ## Draw text at (x,y) in relative coordinates; font is mjtFont.
+    #void mjr_text(int font, const char* txt, const mjrContext* con,
+    #                    float x, float y, float r, float g, float b);
 
-    # Draw text overlay; font is mjtFont; gridpos is mjtGridPos.
-    void mjr_overlay(int font, int gridpos, mjrRect viewport,
-                           const char* overlay, const char* overlay2, const mjrContext* con);
+    ## Draw text overlay; font is mjtFont; gridpos is mjtGridPos.
+    #void mjr_overlay(int font, int gridpos, mjrRect viewport,
+    #                       const char* overlay, const char* overlay2, const mjrContext* con);
 
-    # Get maximum viewport for active buffer.
-    mjrRect mjr_maxViewport(const mjrContext* con);
+    ## Get maximum viewport for active buffer.
+    #mjrRect mjr_maxViewport(const mjrContext* con);
 
-    # Draw rectangle.
-    void mjr_rectangle(mjrRect viewport, float r, float g, float b, float a);
+    ## Draw rectangle.
+    #void mjr_rectangle(mjrRect viewport, float r, float g, float b, float a);
 
-    # Draw rectangle with centered text.
-    void mjr_label(mjrRect viewport, int font, const char* txt,
-                   float r, float g, float b, float a, float rt, float gt, float bt,
-				           const mjrContext* con);
+    ## Draw rectangle with centered text.
+    #void mjr_label(mjrRect viewport, int font, const char* txt,
+    #               float r, float g, float b, float a, float rt, float gt, float bt,
+		#		           const mjrContext* con);
 
-    # Draw 2D figure.
-    void mjr_figure(mjrRect viewport, const mjvFigure* fig, const mjrContext* con);
+    ## Draw 2D figure.
+    #void mjr_figure(mjrRect viewport, const mjvFigure* fig, const mjrContext* con);
 
-    # Render 3D scene.
-    void mjr_render(mjrRect viewport, mjvScene* scn, const mjrContext* con);
+    ## Render 3D scene.
+    #void mjr_render(mjrRect viewport, mjvScene* scn, const mjrContext* con);
 
-    # Call glFinish.
-    void mjr_finish();
+    ## Call glFinish.
+    #void mjr_finish();
 
-    # Call glGetError and return result.
-    int mjr_getError();
+    ## Call glGetError and return result.
+    #int mjr_getError();
 
-    # Find first rectangle containing mouse, -1: not found.
-    int mjr_findRect(int x, int y, int nrect, const mjrRect* rect);
+    ## Find first rectangle containing mouse, -1: not found.
+    #int mjr_findRect(int x, int y, int nrect, const mjrRect* rect);
 
     #---------------------- UI framework ---------------------------------------------------
 
-    # Add definitions to UI.
-    void mjui_add(mjUI* ui, const mjuiDef* _def);
+    ## Add definitions to UI.
+    #void mjui_add(mjUI* ui, const mjuiDef* _def);
 
-    # Add definitions to UI section.
-    void mjui_addToSection(mjUI* ui, int sect, const mjuiDef* _def);
+    ## Add definitions to UI section.
+    #void mjui_addToSection(mjUI* ui, int sect, const mjuiDef* _def);
 
 
-    # Compute UI sizes.
-    void mjui_resize(mjUI* ui, const mjrContext* con);
+    ## Compute UI sizes.
+    #void mjui_resize(mjUI* ui, const mjrContext* con);
 
-    # Update specific section/item; -1: update all.
-    void mjui_update(int section, int item, const mjUI* ui, const mjuiState* state, const mjrContext* con);
+    ## Update specific section/item; -1: update all.
+    #void mjui_update(int section, int item, const mjUI* ui, const mjuiState* state, const mjrContext* con);
 
-    # Handle UI event, return pointer to changed item, NULL if no change.
-    mjuiItem* mjui_event(mjUI* ui, mjuiState* state, const mjrContext* con);
+    ## Handle UI event, return pointer to changed item, NULL if no change.
+    #mjuiItem* mjui_event(mjUI* ui, mjuiState* state, const mjrContext* con);
 
-    # Copy UI image to current buffer.
-    void mjui_render(mjUI* ui, const mjuiState* state, const mjrContext* con);
+    ## Copy UI image to current buffer.
+    #void mjui_render(mjUI* ui, const mjuiState* state, const mjrContext* con);
 
 
     #--------------------- Error and memory -----------------------------------------------

@@ -20,8 +20,8 @@ include "generated/wrappers.pxi"
 include "opengl_context.pyx"
 include "mjsim.pyx"
 include "mjsimstate.pyx"
-include "mjrendercontext.pyx"
-include "mjbatchrenderer.pyx"
+#include "mjrendercontext.pyx"
+#include "mjbatchrenderer.pyx"
 include "mjpid.pyx"
 
 cdef extern from "gl/glshim.h":
@@ -34,12 +34,12 @@ cdef extern from "gl/glshim.h":
 
     cdef unsigned int createPBO(int width, int height, int batchSize, int use_short)
     cdef void freePBO(unsigned int pixelBuffer)
-    cdef void copyFBOToPBO(mjrContext* con,
-                           unsigned int pbo_rgb, unsigned int pbo_depth,
-                           mjrRect viewport, int bufferOffset)
-    cdef void readPBO(unsigned char *buffer_rgb, unsigned short *buffer_depth,
-                      unsigned int pbo_rgb, unsigned int pbo_depth,
-                      int width, int height, int batchSize)
+    #cdef void copyFBOToPBO(mjrContext* con,
+    #                       unsigned int pbo_rgb, unsigned int pbo_depth,
+    #                       mjrRect viewport, int bufferOffset)
+    #cdef void readPBO(unsigned char *buffer_rgb, unsigned short *buffer_depth,
+    #                  unsigned int pbo_rgb, unsigned int pbo_depth,
+    #                  int width, int height, int batchSize)
 
 
 

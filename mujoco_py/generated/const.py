@@ -22,42 +22,6 @@ MAXOVERLAY = 500.0                  # maximum number of characters in overlay te
 MAXLINE = 100.0                     # maximum number of lines per plot
 MAXLINEPNT = 1000.0                 # maximum number points per line
 MAXPLANEGRID = 200.0                # maximum number of grid divisions for plane
-NAUX = 10.0                         # number of auxiliary buffers
-MAXTEXTURE = 1000.0                 # maximum number of textures
-MAXUISECT = 10.0                    # maximum number of sections
-MAXUIITEM = 80.0                    # maximum number of items per section
-MAXUITEXT = 300.0                   # maximum number of chars in edittext and other
-MAXUINAME = 40.0                    # maximum number of chars in name
-MAXUIMULTI = 35.0                   # maximum number of radio/select items in group
-MAXUIEDIT = 7.0                     # maximum number of elements in edit list
-MAXUIRECT = 25.0                    # maximum number of rectangles
-SEPCLOSED = 1000.0                  # closed state of adjustable separator
-KEY_ESCAPE = 256.0                  # 
-KEY_ENTER = 257.0                   # 
-KEY_TAB = 258.0                     # 
-KEY_BACKSPACE = 259.0               # 
-KEY_INSERT = 260.0                  # 
-KEY_DELETE = 261.0                  # 
-KEY_RIGHT = 262.0                   # 
-KEY_LEFT = 263.0                    # 
-KEY_DOWN = 264.0                    # 
-KEY_UP = 265.0                      # 
-KEY_PAGE_UP = 266.0                 # 
-KEY_PAGE_DOWN = 267.0               # 
-KEY_HOME = 268.0                    # 
-KEY_END = 269.0                     # 
-KEY_F1 = 290.0                      # 
-KEY_F2 = 291.0                      # 
-KEY_F3 = 292.0                      # 
-KEY_F4 = 293.0                      # 
-KEY_F5 = 294.0                      # 
-KEY_F6 = 295.0                      # 
-KEY_F7 = 296.0                      # 
-KEY_F8 = 297.0                      # 
-KEY_F9 = 298.0                      # 
-KEY_F10 = 299.0                     # 
-KEY_F11 = 300.0                     # 
-KEY_F12 = 301.0                     # 
 
 ###### const from enums ######
 
@@ -402,59 +366,3 @@ NRNDFLAG = 9
 STEREO_NONE = 0
 STEREO_QUADBUFFERED = 1
 STEREO_SIDEBYSIDE = 2
-
- # _mjtGridPos
-GRID_TOPLEFT = 0
-GRID_TOPRIGHT = 1
-GRID_BOTTOMLEFT = 2
-GRID_BOTTOMRIGHT = 3
-
- # _mjtFramebuffer
-FB_WINDOW = 0
-FB_OFFSCREEN = 1
-
- # _mjtFontScale
-FONTSCALE_50 = 50
-FONTSCALE_100 = 100
-FONTSCALE_150 = 150
-FONTSCALE_200 = 200
-FONTSCALE_250 = 250
-FONTSCALE_300 = 300
-
- # _mjtFont
-FONT_NORMAL = 0
-FONT_SHADOW = 1
-FONT_BIG = 2
-
- # _mjtButton
-BUTTON_NONE = 0
-BUTTON_LEFT = 1
-BUTTON_RIGHT = 2
-BUTTON_MIDDLE = 3
-
- # _mjtEvent
-EVENT_NONE = 0
-EVENT_MOVE = 1
-EVENT_PRESS = 2
-EVENT_RELEASE = 3
-EVENT_SCROLL = 4
-EVENT_KEY = 5
-EVENT_RESIZE = 6
-
- # _mjtItem
-ITEM_END = -2
-ITEM_SECTION = -1
-ITEM_SEPARATOR = 0
-ITEM_STATIC = 1
-ITEM_BUTTON = 2
-ITEM_CHECKINT = 3
-ITEM_CHECKBYTE = 4
-ITEM_RADIO = 5
-ITEM_RADIOLINE = 6
-ITEM_SELECT = 7
-ITEM_SLIDERINT = 8
-ITEM_SLIDERNUM = 9
-ITEM_EDITINT = 10
-ITEM_EDITNUM = 11
-ITEM_EDITTXT = 12
-NITEM = 13

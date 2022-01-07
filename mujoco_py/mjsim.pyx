@@ -147,34 +147,35 @@ cdef class MjSim(object):
         - depth (float array): depth buffer from camera (only returned
             if depth=True)
         """
-        if camera_name is None:
-            camera_id = None
-        else:
-            camera_id = self.model.camera_name2id(camera_name)
+        raise NotImplementedError("Rendering not supported")
+        #if camera_name is None:
+        #    camera_id = None
+        #else:
+        #    camera_id = self.model.camera_name2id(camera_name)
 
-        if mode == 'offscreen':
-            with _MjSim_render_lock:
-                if self._render_context_offscreen is None:
-                    render_context = MjRenderContextOffscreen(
-                        self, device_id=device_id)
-                else:
-                    render_context = self._render_context_offscreen
+        #if mode == 'offscreen':
+        #    with _MjSim_render_lock:
+        #        if self._render_context_offscreen is None:
+        #            render_context = MjRenderContextOffscreen(
+        #                self, device_id=device_id)
+        #        else:
+        #            render_context = self._render_context_offscreen
 
-                render_context.render(
-                    width=width, height=height, camera_id=camera_id, segmentation=segmentation)
-                return render_context.read_pixels(
-                    width, height, depth=depth, segmentation=segmentation)
-        elif mode == 'window':
-            if self._render_context_window is None:
-                from mujoco_py.mjviewer import MjViewer
-                render_context = MjViewer(self)
-            else:
-                render_context = self._render_context_window
+        #        render_context.render(
+        #            width=width, height=height, camera_id=camera_id, segmentation=segmentation)
+        #        return render_context.read_pixels(
+        #            width, height, depth=depth, segmentation=segmentation)
+        #elif mode == 'window':
+        #    if self._render_context_window is None:
+        #        from mujoco_py.mjviewer import MjViewer
+        #        render_context = MjViewer(self)
+        #    else:
+        #        render_context = self._render_context_window
 
-            render_context.render()
+        #    render_context.render()
 
-        else:
-            raise ValueError("Mode must be either 'window' or 'offscreen'.")
+        #else:
+        #    raise ValueError("Mode must be either 'window' or 'offscreen'.")
 
     def add_render_context(self, render_context):
         self.render_contexts.append(render_context)
